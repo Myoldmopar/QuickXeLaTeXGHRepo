@@ -16,7 +16,7 @@ jobs:
       run: echo "/C/Program Files/MikTeX/miktex/bin/x64" >> $GITHUB_PATH
 
     - name: List MikTeX binary contents
-      working-directory: "/C/Program Files/MikTeX/miktex/bin/x64"
+      working-directory: /C/Program Files/MikTeX/miktex/bin/x64
       run: ls
       shell: bash
 

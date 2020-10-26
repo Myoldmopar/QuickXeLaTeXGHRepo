@@ -18,7 +18,9 @@ jobs:
     - name: List MikTeX binary contents
       working-directory: "/C/Program Files/MikTeX/miktex/bin/x64"
       run: ls
+      shell: bash
 
     - name: Build Test Document (will install missing packages)
       working-directory: ${{runner.workspace}}/QuickXeLaTeXGHRepo
       run: /C/Program\ Files/MikTeX/miktex/bin/x64/xelatex.exe dependencies.tex
+      shell: bash

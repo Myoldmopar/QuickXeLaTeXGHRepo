@@ -12,13 +12,13 @@ jobs:
     - name: Install Chocolately Packages
       run: choco install miktex && refreshenv
 
-    - name: Add MikTeX binary folder to path
-      run: echo "/C/Program Files/MikTeX/miktex/bin/x64" >> $GITHUB_PATH
-
-    - name: List MikTeX binary contents
-      working-directory: /C/Program Files/MikTeX/miktex/bin/x64
-      run: ls
-      shell: bash
+#    - name: Add MikTeX binary folder to path
+#      run: echo "/C/Program Files/MikTeX/miktex/bin/x64" >> $GITHUB_PATH
+#
+#    - name: List MikTeX binary contents
+#      working-directory: /C/Program Files/MikTeX/miktex/bin/x64
+#      run: ls
+#      shell: bash
 
     - name: Build Test Document (will install missing packages)
       working-directory: ${{runner.workspace}}/QuickXeLaTeXGHRepo

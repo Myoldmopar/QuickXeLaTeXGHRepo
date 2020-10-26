@@ -1,0 +1,24 @@
+name: Windows Releases
+
+on: [push]
+
+jobs:
+  windows_release_64:
+    runs-on: windows-2019
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - name: Install Chocolately Packages
+      run: choco install miktex && refreshenv
+
+    - name: Add MikTeX binary folder to path
+      run: echo "/C/Program Files/MikTeX/miktex/bin/x64" >> $GITHUB_PATH
+
+    - name: List MikTeX binary contents
+      working-directory: "/C/Program Files/MikTeX/miktex/bin/x64"
+      run: ls
+
+    - name: Build Test Document (will install missing packages)
+      working-directory: ${{runner.workspace}}/QuickXeLaTeXGHRepo
+      run: /C/Program\ Files/MikTeX/miktex/bin/x64/xelatex.exe dependencies.tex
